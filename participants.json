@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "ticket": "001",
+    "name": "Jon Bonz",
+    "pick1": "Argentina",
+    "pick2": "France",
+    "status": "Verified"
+  }
+]
