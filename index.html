@@ -7,22 +7,32 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans min-h-screen">
+<body class="bg-gradient-to-b from-slate-950 via-slate-900 to-emerald-950/40 text-slate-100 font-sans min-h-screen antialiased selection:bg-amber-500 selection:text-slate-950">
+
+    <!-- Top Glow Accent Line -->
+    <div class="h-1 bg-gradient-to-r from-amber-500 via-emerald-500 to-blue-600 w-full"></div>
 
     <!-- Header Section -->
-    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-50">
+    <header class="border-b border-slate-800/60 bg-slate-950/70 backdrop-blur sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
             <div class="flex items-center gap-3">
-                <div class="bg-blue-600 p-2 rounded-lg text-xl"><i class="fas fa-trophy text-yellow-400"></i></div>
+                <div class="bg-gradient-to-br from-amber-500 to-yellow-600 p-2.5 rounded-xl shadow-lg shadow-amber-500/10 text-xl">
+                    <i class="fas fa-futbol text-slate-950"></i>
+                </div>
                 <div>
-                    <h1 class="font-bold text-lg tracking-wide">P.E.S MATCHES</h1>
-                    <p class="text-xs text-slate-400">World Cup Predictor Challenge</p>
+                    <h1 class="font-black text-xl tracking-wider bg-gradient-to-r from-amber-400 via-yellow-200 to-white bg-clip-text text-transparent">P.E.S MATCHES</h1>
+                    <p class="text-[10px] uppercase tracking-widest text-emerald-400 font-bold">World Cup Predictor Challenge</p>
                 </div>
             </div>
-            <div class="flex items-center gap-4 text-sm bg-slate-950 px-4 py-2 rounded-full border border-slate-800">
-                <div>Entry: <span class="text-green-400 font-bold">Rs. 10</span></div>
-                <div class="text-slate-700">|</div>
-                <div>Prize: <span class="text-yellow-400 font-bold">Rs. 100</span></div>
+            <div class="flex items-center gap-4 text-xs font-semibold">
+                <div class="bg-slate-900/90 border border-slate-800 px-4 py-2 rounded-xl flex items-center gap-2">
+                    <span class="text-slate-400">Entry:</span>
+                    <span class="text-emerald-400 font-extrabold text-sm">Rs. 10</span>
+                </div>
+                <div class="bg-gradient-to-r from-amber-500/10 to-yellow-500/10 border border-amber-500/30 px-4 py-2 rounded-xl flex items-center gap-2 shadow-inner">
+                    <span class="text-amber-400"><i class="fas fa-trophy mr-1"></i> Grand Prize:</span>
+                    <span class="text-amber-400 font-black text-sm">Rs. 100</span>
+                </div>
             </div>
         </div>
     </header>
@@ -31,119 +41,222 @@
         
         <!-- Top Stats & Analytics Grid -->
         <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Pool Counter -->
-            <div class="bg-gradient-to-br from-slate-900 to-slate-850 p-6 rounded-2xl border border-slate-800 flex flex-col justify-center">
-                <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Total Verified Pool</p>
-                <h3 class="text-4xl font-black text-blue-400 mt-1" id="total-entries">00</h3>
+            
+            <!-- Live Pool Counter Card -->
+            <div class="bg-slate-900/40 backdrop-blur border border-slate-800 rounded-2xl p-6 flex flex-col justify-between shadow-xl relative overflow-hidden group hover:border-emerald-500/30 transition-all duration-300">
+                <div class="absolute -right-6 -bottom-6 text-slate-800/10 text-8xl font-black pointer-events-none select-none">📊</div>
+                <div>
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Open Ledger
+                    </span>
+                    <p class="text-xs text-slate-400 uppercase tracking-widest font-bold mt-3">Total Verified Tickets</p>
+                </div>
+                <h3 class="text-5xl font-black text-white tracking-tight mt-2 font-mono" id="total-entries">00</h3>
             </div>
 
-            <!-- Dynamic Community Verdict Card -->
-            <div class="md:col-span-2 bg-gradient-to-br from-slate-900 to-slate-850 p-6 rounded-2xl border border-slate-800 space-y-4">
+            <!-- Community Verdict Card -->
+            <div class="md:col-span-2 bg-gradient-to-br from-slate-900/60 to-slate-950/40 backdrop-blur border border-slate-800 rounded-2xl p-6 space-y-4 shadow-xl shadow-emerald-950/5 hover:border-amber-500/20 transition-all duration-300">
                 <div>
-                    <h4 class="text-sm font-bold text-slate-200 flex items-center gap-2">
-                        <i class="fas fa-fire text-amber-500"></i> Community Verdict Insights
+                    <h4 class="text-xs uppercase tracking-widest font-black text-amber-400 flex items-center gap-2">
+                        <i class="fas fa-chart-line"></i> Global Community Verdict
                     </h4>
-                    <p class="text-[11px] text-slate-400">Real-time percentage breakdown of the most-voted finalists</p>
+                    <p class="text-xs text-slate-400 mt-0.5">Real-time analytical percentage trends of top predicted finalists</p>
                 </div>
-                <!-- Dynamic Target Container for JavaScript Bars -->
+                <!-- Target for JavaScript Bars -->
                 <div id="analytics-container" class="space-y-3">
-                    <p class="text-xs text-slate-500 italic">Awaiting entry calculations...</p>
+                    <p class="text-xs text-slate-500 italic">Processing bracket formulas...</p>
                 </div>
             </div>
         </section>
 
-        <!-- Main Live Tracker Table -->
-        <section class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
-            <div class="p-6 border-b border-slate-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <!-- Main Live Tracker Table & Controls -->
+        <section class="bg-slate-900/30 backdrop-blur border border-slate-800/80 rounded-2xl overflow-hidden shadow-2xl">
+            
+            <!-- Dynamic Control Bar Header -->
+            <div class="p-6 border-b border-slate-800/60 bg-slate-950/30 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
                 <div>
-                    <h2 class="text-xl font-bold">Live Participant Ledger</h2>
-                    <p class="text-xs text-slate-400 mt-0.5">Real-time approved public ticket list</p>
+                    <h2 class="text-lg font-black tracking-wide text-white flex items-center gap-2">
+                        <i class="fas fa-shield-halved text-blue-500"></i> Live Verification Ledger
+                    </h2>
+                    <p class="text-xs text-slate-400 mt-0.5">Filter brackets or run real-time matchup simulations</p>
                 </div>
-                <!-- Search Bar -->
-                <div class="relative w-full sm:w-64">
-                    <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
-                    <input type="text" id="search-bar" placeholder="Search your name..." 
-                           class="w-full bg-slate-950 border border-slate-800 rounded-xl py-2 pl-9 pr-4 text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors">
+
+                <!-- Interactive Filters Panel -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto">
+                    
+                    <!-- Matchup Simulator Component -->
+                    <div class="flex items-center gap-2 bg-slate-950/90 border border-slate-850 rounded-xl px-3 py-1.5 shadow-inner">
+                        <i class="fas fa-crosshairs text-amber-500 text-xs"></i>
+                        <span class="text-[10px] uppercase font-black tracking-wider text-slate-400 hidden sm:inline">Sim:</span>
+                        <select id="sim-team1" class="bg-transparent text-xs text-slate-200 font-bold focus:outline-none cursor-pointer py-0.5 min-w-[90px]">
+                            <option value="" class="bg-slate-950 text-slate-300">Any Team</option>
+                        </select>
+                        <span class="text-slate-600 text-[10px] font-black px-0.5">VS</span>
+                        <select id="sim-team2" class="bg-transparent text-xs text-slate-200 font-bold focus:outline-none cursor-pointer py-0.5 min-w-[90px]">
+                            <option value="" class="bg-slate-950 text-slate-300">Any Team</option>
+                        </select>
+                    </div>
+
+                    <!-- Traditional Search Component -->
+                    <div class="relative flex-1 sm:w-64">
+                        <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+                        <input type="text" id="search-bar" placeholder="Search participant name..." 
+                               class="w-full bg-slate-950/80 border border-slate-800 rounded-xl py-2 pl-9 pr-4 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/20 transition-all">
+                    </div>
+
                 </div>
             </div>
 
+            <!-- Table Output Area -->
             <div class="overflow-x-auto">
-                <table class="w-full text-left text-sm">
-                    <thead class="bg-slate-950 text-slate-400 uppercase text-xs tracking-wider border-b border-slate-800">
+                <table class="w-full text-left text-xs">
+                    <thead class="bg-slate-950/80 text-slate-400 uppercase font-bold tracking-wider border-b border-slate-800/60">
                         <tr>
-                            <th class="px-6 py-4">Ticket</th>
-                            <th class="px-6 py-4">Participant</th>
-                            <th class="px-6 py-4">Finalist 1</th>
-                            <th class="px-6 py-4">Finalist 2</th>
-                            <th class="px-6 py-4 text-right">Status</th>
+                            <th class="px-6 py-4.5">Ticket Code</th>
+                            <th class="px-6 py-4.5">Participant</th>
+                            <th class="px-6 py-4.5">Predicted Finalist 1</th>
+                            <th class="px-6 py-4.5">Predicted Finalist 2</th>
+                            <th class="px-6 py-4.5 text-right">Status</th>
                         </tr>
                     </thead>
-                    <tbody id="ledger-body" class="divide-y divide-slate-800/50"></tbody>
+                    <tbody id="ledger-body" class="divide-y divide-slate-800/40 bg-slate-900/10"></tbody>
                 </table>
             </div>
         </section>
     </main>
 
+    <footer class="text-center py-8 text-[11px] text-slate-600 font-medium">
+        <p>© 2026 P.E.S MATCHES Hub. Built securely via GitHub Pages Automation.</p>
+    </footer>
+
     <script>
         let participantData = [];
+
+        // Dynamic Flag Look-up Engine
+        function getFlagHtml(teamName) {
+            if (!teamName) return '';
+            const cleanName = teamName.trim().toLowerCase();
+            
+            // Map text names to official country codes
+            const flags = {
+                "argentina": "ar", "brazil": "br", "france": "fr", "germany": "de", 
+                "england": "gb-eng", "portugal": "pt", "spain": "es", "italy": "it",
+                "netherlands": "nl", "belgium": "be", "croatia": "hr", "morocco": "ma",
+                "japan": "jp", "senegal": "sn", "usa": "us", "mexico": "mx", 
+                "nepal": "np", "uruguay": "uy", "switzerland": "ch", "south korea": "kr",
+                "ghana": "gh", "cameroon": "cm", "canada": "ca", "ecuador": "ec",
+                "qatar": "qa", "iran": "ir", "saudi arabia": "sa", "australia": "au",
+                "tunisia": "tn", "poland": "pl", "denmark": "dk", "serbia": "rs",
+                "wales": "gb-wls", "costa rica": "cr"
+            };
+            
+            const code = flags[cleanName];
+            if (code) {
+                return `<img src="https://flagcdn.com/16x12/${code}.png" class="inline mr-2 rounded-sm shadow-sm opacity-90 relative -top-[1px]" alt="${teamName}">`;
+            }
+            // Fallback icon if you type a custom team name not in the immediate list
+            return `<i class="far fa-flag mr-2 text-slate-500"></i>`;
+        }
 
         async function loadLedger() {
             try {
                 const response = await fetch('participants.json?t=' + new Date().getTime());
                 participantData = await response.json();
                 
-                document.getElementById('total-entries').innerText = participantData.length.toString().zfill;
+                document.getElementById('total-entries').innerText = participantData.length.toString().padStart(2, '0');
                 
-                // Trigger both components simultaneously
                 calculateAnalytics(participantData);
-                renderTable(participantData);
+                populateSimulatorDropdowns(participantData);
+                filterAndRender();
             } catch (error) {
-                console.error("Error running dataset updates:", error);
+                console.error("Error running database loading chain:", error);
             }
         }
 
-        // Core Analytics Algorithm Engine
+        function populateSimulatorDropdowns(data) {
+            const team1Select = document.getElementById('sim-team1');
+            const team2Select = document.getElementById('sim-team2');
+            const currentSelected1 = team1Select.value;
+            const currentSelected2 = team2Select.value;
+            
+            const uniqueTeams = new Set();
+            data.forEach(player => {
+                if (player.pick1) uniqueTeams.add(player.pick1);
+                if (player.pick2) uniqueTeams.add(player.pick2);
+            });
+            
+            const alphabetizedTeams = Array.from(uniqueTeams).sort();
+            let htmlOptions = '<option value="" class="bg-slate-950 text-slate-400">Any Team</option>';
+            alphabetizedTeams.forEach(team => {
+                htmlOptions += `<option value="${team}" class="bg-slate-950 text-slate-200">${team}</option>`;
+            });
+            
+            team1Select.innerHTML = htmlOptions;
+            team2Select.innerHTML = htmlOptions;
+            team1Select.value = currentSelected1;
+            team2Select.value = currentSelected2;
+        }
+
+        document.getElementById('search-bar').addEventListener('input', filterAndRender);
+        document.getElementById('sim-team1').addEventListener('change', filterAndRender);
+        document.getElementById('sim-team2').addEventListener('change', filterAndRender);
+
+        function filterAndRender() {
+            const searchTerm = document.getElementById('search-bar').value.toLowerCase();
+            const filterTeam1 = document.getElementById('sim-team1').value;
+            const filterTeam2 = document.getElementById('sim-team2').value;
+            
+            let dataset = participantData.filter(player => player.name.toLowerCase().includes(searchTerm));
+            
+            if (filterTeam1 || filterTeam2) {
+                dataset = dataset.filter(player => {
+                    const choice1 = player.pick1;
+                    const choice2 = player.pick2;
+                    if (filterTeam1 && filterTeam2) {
+                        return (choice1 === filterTeam1 && choice2 === filterTeam2) || (choice1 === filterTeam2 && choice2 === filterTeam1);
+                    } else if (filterTeam1) {
+                        return choice1 === filterTeam1 || choice2 === filterTeam1;
+                    } else if (filterTeam2) {
+                        return choice1 === filterTeam2 || choice2 === filterTeam2;
+                    }
+                    return true;
+                });
+            }
+            renderTable(dataset);
+        }
+
         function calculateAnalytics(data) {
             const container = document.getElementById('analytics-container');
             if (!data || data.length === 0) {
-                container.innerHTML = `<p class="text-xs text-slate-500 italic">No submissions documented yet.</p>`;
+                container.innerHTML = `<p class="text-xs text-slate-500 italic">No entry submissions documented yet.</p>`;
                 return;
             }
 
             const teamCounts = {};
-            
-            // Tally counts across both prediction selection categories
             data.forEach(player => {
                 if (player.pick1) teamCounts[player.pick1] = (teamCounts[player.pick1] || 0) + 1;
                 if (player.pick2) teamCounts[player.pick2] = (teamCounts[player.pick2] || 0) + 1;
             });
 
-            // Sort team entities dynamically based on voting trends
             const sortedTeams = Object.keys(teamCounts).sort((a, b) => teamCounts[b] - teamCounts[a]);
-            
-            // Isolate the Top 3 highly tracked entries
             const topThree = sortedTeams.slice(0, 3);
             let appendHtml = "";
 
             topThree.forEach((team, index) => {
                 const totalVotes = teamCounts[team];
-                // Math conversion for percentage of the pool voting for this country
                 const percentage = Math.round((totalVotes / data.length) * 100);
+                const barColor = index === 0 ? 'bg-gradient-to-r from-amber-500 to-yellow-400' : index === 1 ? 'bg-gradient-to-r from-slate-400 to-slate-300' : 'bg-gradient-to-r from-emerald-500 to-teal-400';
                 
-                // UI Visual layout variables based on ranking position
-                const dynamicColor = index === 0 ? "bg-amber-500" : index === 1 ? "bg-slate-400" : "bg-orange-600";
-                const medalIcon = index === 0 ? "fa-gold text-amber-400" : index === 1 ? "fa-silver text-slate-400" : "fa-bronze text-orange-500";
-
                 appendHtml += `
                     <div class="space-y-1">
-                        <div class="flex justify-between text-xs font-medium">
-                            <span class="flex items-center gap-2 text-slate-200">
-                                <i class="fas fa-medal ${medalIcon}"></i> ${team}
+                        <div class="flex justify-between text-xs font-semibold">
+                            <span class="flex items-center text-slate-200">
+                                ${getFlagHtml(team)} ${team}
                             </span>
-                            <span class="text-slate-400 font-mono">${totalVotes} votes (${percentage}%)</span>
+                            <span class="text-slate-400 font-mono text-[11px]">${totalVotes} votes (${percentage}%)</span>
                         </div>
-                        <div class="w-full bg-slate-950 rounded-full h-2 border border-slate-850 overflow-hidden">
-                            <div class="${dynamicColor} h-2 rounded-full transition-all duration-500" style="width: ${percentage}%"></div>
+                        <div class="w-full bg-slate-950 rounded-full h-2 border border-slate-800/40 overflow-hidden">
+                            <div class="${barColor} h-2 rounded-full transition-all duration-500 shadow-sm" style="width: ${percentage}%"></div>
                         </div>
                     </div>`;
             });
@@ -155,27 +268,22 @@
             const tbody = document.getElementById('ledger-body');
             tbody.innerHTML = '';
             if(data.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="5" class="text-center py-8 text-slate-500">No entries yet.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="5" class="text-center py-10 text-slate-500 italic">No corresponding records match the set filtering settings.</td></tr>`;
                 return;
             }
-            document.getElementById('total-entries').innerText = data.length.toString().padStart(2, '0');
             data.forEach(player => {
                 const row = `
-                    <tr class="hover:bg-slate-850/40 transition-colors">
-                        <td class="px-6 py-4 font-mono text-slate-400">#${player.ticket}</td>
-                        <td class="px-6 py-4 font-semibold text-slate-200">${player.name}</td>
-                        <td class="px-6 py-4"><span class="bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-xs">${player.pick1}</span></td>
-                        <td class="px-6 py-4"><span class="bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-xs">${player.pick2}</span></td>
-                        <td class="px-6 py-4 text-right"><span class="px-2.5 py-0.5 rounded-full text-xs font-medium text-green-400 bg-green-500/10">${player.status}</span></td>
+                    <tr class="hover:bg-slate-800/30 transition-all duration-150">
+                        <td class="px-6 py-4 font-mono font-bold text-slate-400 tracking-wider">#${player.ticket}</td>
+                        <td class="px-6 py-4 font-bold text-slate-200">${player.name}</td>
+                        <td class="px-6 py-4"><span class="bg-slate-950/80 px-3 py-1.5 rounded-xl border border-slate-800 text-[11px] font-semibold text-slate-300 shadow-sm flex items-center w-fit">${getFlagHtml(player.pick1)}${player.pick1}</span></td>
+                        <td class="px-6 py-4"><span class="bg-slate-950/80 px-3 py-1.5 rounded-xl border border-slate-800 text-[11px] font-semibold text-slate-300 shadow-sm flex items-center w-fit">${getFlagHtml(player.pick2)}${player.pick2}</span></td>
+                        <td class="px-6 py-4 text-right"><span class="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 shadow-sm"><i class="fas fa-circle-check mr-1 text-[9px]"></i>${player.status}</span></td>
                     </tr>`;
                 tbody.insertAdjacentHTML('beforeend', row);
             });
         }
 
-        document.getElementById('search-bar').addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            renderTable(participantData.filter(player => player.name.toLowerCase().includes(searchTerm)));
-        });
         window.onload = loadLedger;
     </script>
 </body>
