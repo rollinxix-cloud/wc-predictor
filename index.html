@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P.E.S MATCHES | World Cup Predictor Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen">
+
+    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="bg-blue-600 p-2 rounded-lg text-xl"><i class="fas fa-trophy text-yellow-400"></i></div>
+                <div>
+                    <h1 class="font-bold text-lg tracking-wide">P.E.S MATCHES</h1>
+                    <p class="text-xs text-slate-400">World Cup Predictor Challenge</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 text-sm bg-slate-950 px-4 py-2 rounded-full border border-slate-800">
+                <div>Entry: <span class="text-green-400 font-bold">Rs. 10</span></div>
+                <div class="text-slate-700">|</div>
+                <div>Prize: <span class="text-yellow-400 font-bold">Rs. 100</span></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-8 space-y-8">
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-gradient-to-br from-slate-900 to-slate-850 p-6 rounded-2xl border border-slate-800">
+                <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Total Verified Pool</p>
+                <h3 class="text-3xl font-black text-blue-400 mt-1" id="total-entries">00</h3>
+            </div>
+            <div class="bg-gradient-to-br from-slate-900 to-slate-850 p-6 rounded-2xl border border-slate-800">
+                <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Most Popular Pick</p>
+                <h3 class="text-3xl font-black text-amber-400 mt-1">Global Predictions</h3>
+            </div>
+            <div class="bg-gradient-to-br from-slate-900 to-slate-850 p-6 rounded-2xl border border-slate-800 flex items-center justify-between">
+                <div>
+                    <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Want to Enter?</p>
+                    <p class="text-sm text-slate-300 mt-1">Pay via eSewa & DM group admin</p>
+                </div>
+                <i class="fab fa-facebook text-3xl text-blue-500"></i>
+            </div>
+        </section>
+
+        <section class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
+            <div class="p-6 border-b border-slate-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <h2 class="text-xl font-bold">Live Participant Ledger</h2>
+                    <p class="text-xs text-slate-400 mt-0.5">Real-time approved public ticket list</p>
+                </div>
+                <div class="relative w-full sm:w-64">
+                    <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
+                    <input type="text" id="search-bar" placeholder="Search your name..." 
+                           class="w-full bg-slate-950 border border-slate-800 rounded-xl py-2 pl-9 pr-4 text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors">
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-slate-950 text-slate-400 uppercase text-xs tracking-wider border-b border-slate-800">
+                        <tr>
+                            <th class="px-6 py-4">Ticket</th>
+                            <th class="px-6 py-4">Participant</th>
+                            <th class="px-6 py-4">Finalist 1</th>
+                            <th class="px-6 py-4">Finalist 2</th>
+                            <th class="px-6 py-4 text-right">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ledger-body" class="divide-y divide-slate-800/50"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        let participantData = [];
+        async function loadLedger() {
+            try {
+                const response = await fetch('participants.json?t=' + new Date().getTime());
+                participantData = await response.json();
+                document.getElementById('total-entries').innerText = participantData.length;
+                renderTable(participantData);
+            } catch (error) {
+                console.error("Error loading predictions ledger:", error);
+            }
+        }
+
+        function renderTable(data) {
+            const tbody = document.getElementById('ledger-body');
+            tbody.innerHTML = '';
+            if(data.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="text-center py-8 text-slate-500">No entries yet.</td></tr>`;
+                return;
+            }
+            data.forEach(player => {
+                const row = `
+                    <tr class="hover:bg-slate-850/40 transition-colors">
+                        <td class="px-6 py-4 font-mono text-slate-400">#${player.ticket}</td>
+                        <td class="px-6 py-4 font-semibold text-slate-200">${player.name}</td>
+                        <td class="px-6 py-4"><span class="bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-xs">${player.pick1}</span></td>
+                        <td class="px-6 py-4"><span class="bg-slate-950 px-2.5 py-1 rounded border border-slate-800 text-xs">${player.pick2}</span></td>
+                        <td class="px-6 py-4 text-right"><span class="px-2.5 py-0.5 rounded-full text-xs font-medium text-green-400 bg-green-500/10">${player.status}</span></td>
+                    </tr>`;
+                tbody.insertAdjacentHTML('beforeend', row);
+            });
+        }
+
+        document.getElementById('search-bar').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            renderTable(participantData.filter(player => player.name.toLowerCase().includes(searchTerm)));
+        });
+        window.onload = loadLedger;
+    </script>
+</body>
+</html>
