@@ -9,6 +9,7 @@
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans min-h-screen">
 
+    <!-- Header Section -->
     <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
             <div class="flex items-center gap-3">
@@ -26,31 +27,39 @@
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-4 py-8 space-y-8">
+    <main class="max-w-6xl mx-auto px-4 py-8 space-y-6">
+        
+        <!-- Top Stats & Analytics Grid -->
         <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-gradient-to-br from-slate-900 to-slate-850 p-6 rounded-2xl border border-slate-800">
+            <!-- Pool Counter -->
+            <div class="bg-gradient-to-br from-slate-900 to-slate-850 p-6 rounded-2xl border border-slate-800 flex flex-col justify-center">
                 <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Total Verified Pool</p>
-                <h3 class="text-3xl font-black text-blue-400 mt-1" id="total-entries">00</h3>
+                <h3 class="text-4xl font-black text-blue-400 mt-1" id="total-entries">00</h3>
             </div>
-            <div class="bg-gradient-to-br from-slate-900 to-slate-850 p-6 rounded-2xl border border-slate-800">
-                <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Most Popular Pick</p>
-                <h3 class="text-3xl font-black text-amber-400 mt-1">Global Predictions</h3>
-            </div>
-            <div class="bg-gradient-to-br from-slate-900 to-slate-850 p-6 rounded-2xl border border-slate-800 flex items-center justify-between">
+
+            <!-- Dynamic Community Verdict Card -->
+            <div class="md:col-span-2 bg-gradient-to-br from-slate-900 to-slate-850 p-6 rounded-2xl border border-slate-800 space-y-4">
                 <div>
-                    <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Want to Enter?</p>
-                    <p class="text-sm text-slate-300 mt-1">Pay via eSewa & DM group admin</p>
+                    <h4 class="text-sm font-bold text-slate-200 flex items-center gap-2">
+                        <i class="fas fa-fire text-amber-500"></i> Community Verdict Insights
+                    </h4>
+                    <p class="text-[11px] text-slate-400">Real-time percentage breakdown of the most-voted finalists</p>
                 </div>
-                <i class="fab fa-facebook text-3xl text-blue-500"></i>
+                <!-- Dynamic Target Container for JavaScript Bars -->
+                <div id="analytics-container" class="space-y-3">
+                    <p class="text-xs text-slate-500 italic">Awaiting entry calculations...</p>
+                </div>
             </div>
         </section>
 
+        <!-- Main Live Tracker Table -->
         <section class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
             <div class="p-6 border-b border-slate-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>
                     <h2 class="text-xl font-bold">Live Participant Ledger</h2>
                     <p class="text-xs text-slate-400 mt-0.5">Real-time approved public ticket list</p>
                 </div>
+                <!-- Search Bar -->
                 <div class="relative w-full sm:w-64">
                     <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
                     <input type="text" id="search-bar" placeholder="Search your name..." 
@@ -77,15 +86,69 @@
 
     <script>
         let participantData = [];
+
         async function loadLedger() {
             try {
                 const response = await fetch('participants.json?t=' + new Date().getTime());
                 participantData = await response.json();
-                document.getElementById('total-entries').innerText = participantData.length;
+                
+                document.getElementById('total-entries').innerText = participantData.length.toString().zfill;
+                
+                // Trigger both components simultaneously
+                calculateAnalytics(participantData);
                 renderTable(participantData);
             } catch (error) {
-                console.error("Error loading predictions ledger:", error);
+                console.error("Error running dataset updates:", error);
             }
+        }
+
+        // Core Analytics Algorithm Engine
+        function calculateAnalytics(data) {
+            const container = document.getElementById('analytics-container');
+            if (!data || data.length === 0) {
+                container.innerHTML = `<p class="text-xs text-slate-500 italic">No submissions documented yet.</p>`;
+                return;
+            }
+
+            const teamCounts = {};
+            
+            // Tally counts across both prediction selection categories
+            data.forEach(player => {
+                if (player.pick1) teamCounts[player.pick1] = (teamCounts[player.pick1] || 0) + 1;
+                if (player.pick2) teamCounts[player.pick2] = (teamCounts[player.pick2] || 0) + 1;
+            });
+
+            // Sort team entities dynamically based on voting trends
+            const sortedTeams = Object.keys(teamCounts).sort((a, b) => teamCounts[b] - teamCounts[a]);
+            
+            // Isolate the Top 3 highly tracked entries
+            const topThree = sortedTeams.slice(0, 3);
+            let appendHtml = "";
+
+            topThree.forEach((team, index) => {
+                const totalVotes = teamCounts[team];
+                // Math conversion for percentage of the pool voting for this country
+                const percentage = Math.round((totalVotes / data.length) * 100);
+                
+                // UI Visual layout variables based on ranking position
+                const dynamicColor = index === 0 ? "bg-amber-500" : index === 1 ? "bg-slate-400" : "bg-orange-600";
+                const medalIcon = index === 0 ? "fa-gold text-amber-400" : index === 1 ? "fa-silver text-slate-400" : "fa-bronze text-orange-500";
+
+                appendHtml += `
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs font-medium">
+                            <span class="flex items-center gap-2 text-slate-200">
+                                <i class="fas fa-medal ${medalIcon}"></i> ${team}
+                            </span>
+                            <span class="text-slate-400 font-mono">${totalVotes} votes (${percentage}%)</span>
+                        </div>
+                        <div class="w-full bg-slate-950 rounded-full h-2 border border-slate-850 overflow-hidden">
+                            <div class="${dynamicColor} h-2 rounded-full transition-all duration-500" style="width: ${percentage}%"></div>
+                        </div>
+                    </div>`;
+            });
+
+            container.innerHTML = appendHtml;
         }
 
         function renderTable(data) {
@@ -95,6 +158,7 @@
                 tbody.innerHTML = `<tr><td colspan="5" class="text-center py-8 text-slate-500">No entries yet.</td></tr>`;
                 return;
             }
+            document.getElementById('total-entries').innerText = data.length.toString().padStart(2, '0');
             data.forEach(player => {
                 const row = `
                     <tr class="hover:bg-slate-850/40 transition-colors">
