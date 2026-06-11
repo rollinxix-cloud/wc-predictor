@@ -19,5 +19,12 @@
     "pick1": "Spain",
     "pick2": "Portugal",
     "status": "Verified"
+  },
+  {
+    "ticket": "004",
+    "name": "Utsav Joshi",
+    "pick1": "France",
+    "pick2": "England",
+    "status": "Verified"
   }
 ]
