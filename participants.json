@@ -5,5 +5,12 @@
     "pick1": "Argentina",
     "pick2": "France",
     "status": "Verified"
+  },
+  {
+    "ticket": "002",
+    "name": "Binaya Shrestha",
+    "pick1": "Spain",
+    "pick2": "Argentina",
+    "status": "Verified"
   }
 ]
