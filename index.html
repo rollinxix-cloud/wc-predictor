@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P.E.S MATCHES | World Cup Predictor Dashboard</title>
+    <title>P.E.S MATCHES | World Cup Mega Pool Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -26,45 +26,88 @@
             </div>
             <div class="flex items-center gap-4 text-xs font-semibold">
                 <div class="bg-slate-900/90 border border-slate-800 px-4 py-2 rounded-xl flex items-center gap-2">
-                    <span class="text-slate-400">Entry:</span>
+                    <span class="text-slate-400">Ticket Cost:</span>
                     <span class="text-emerald-400 font-extrabold text-sm">Rs. 10</span>
                 </div>
-                <div class="bg-gradient-to-r from-amber-500/10 to-yellow-500/10 border border-amber-500/30 px-4 py-2 rounded-xl flex items-center gap-2 shadow-inner">
-                    <span class="text-amber-400"><i class="fas fa-trophy mr-1"></i> Grand Prize:</span>
-                    <span class="text-amber-400 font-black text-sm">Rs. 100</span>
+                <div class="bg-gradient-to-r from-amber-500/20 to-yellow-500/20 border border-amber-500/40 px-4 py-2 rounded-xl flex items-center gap-2 shadow-lg shadow-amber-500/5">
+                    <span class="text-amber-400"><i class="fas fa-crown mr-1"></i> Mode:</span>
+                    <span class="text-amber-300 font-black text-xs uppercase tracking-wider">Winner Takes All!</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-4 py-8 space-y-6">
+    <main class="max-w-6xl mx-auto px-4 py-6 space-y-6">
+
+        <!-- Live Activity Ticker Widget -->
+        <div id="activity-ticker" class="bg-slate-950/60 border border-slate-800/50 rounded-xl px-4 py-2.5 text-xs text-slate-300 flex items-center gap-3 overflow-hidden shadow-inner">
+            <span class="text-amber-500 font-bold flex items-center gap-1.5 shrink-0">
+                <i class="fas fa-circle-notch animate-spin text-[10px]"></i> SECURING NETWORK...
+            </span>
+            <p class="text-slate-500 italic">Syncing recent database submissions...</p>
+        </div>
         
         <!-- Top Stats & Analytics Grid -->
         <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
             
-            <!-- Live Pool Counter Card -->
-            <div class="bg-slate-900/40 backdrop-blur border border-slate-800 rounded-2xl p-6 flex flex-col justify-between shadow-xl relative overflow-hidden group hover:border-emerald-500/30 transition-all duration-300">
-                <div class="absolute -right-6 -bottom-6 text-slate-800/10 text-8xl font-black pointer-events-none select-none">📊</div>
+            <!-- Dynamic GROWING Bounty Card -->
+            <div class="bg-gradient-to-br from-slate-900 to-slate-950 border-2 border-amber-500/30 rounded-2xl p-5 flex flex-col justify-between shadow-2xl relative overflow-hidden group">
+                <div class="absolute -right-4 -bottom-4 text-amber-500/5 text-8xl font-black pointer-events-none select-none">🏆</div>
                 <div>
-                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Open Ledger
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span> Live Jackpot Pool
                     </span>
-                    <p class="text-xs text-slate-400 uppercase tracking-widest font-bold mt-3">Total Verified Tickets</p>
+                    <p class="text-xs text-slate-400 uppercase tracking-widest font-bold mt-3">Current Grand Prize Bounty</p>
                 </div>
-                <h3 class="text-5xl font-black text-white tracking-tight mt-2 font-mono" id="total-entries">00</h3>
+                <div>
+                    <h3 class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-200 to-amber-500 tracking-tight mt-2 font-mono" id="live-prize-pool">Rs. 0</h3>
+                    <p class="text-[10px] text-emerald-400 font-semibold mt-1"><i class="fas fa-arrow-trend-up mr-1"></i> Grows by Rs. 10 with every ticket added!</p>
+                </div>
+            </div>
+
+            <!-- HARD DEADLINE COUNTER CARD -->
+            <div class="bg-gradient-to-br from-slate-900 to-slate-950 border border-rose-500/30 rounded-2xl p-5 flex flex-col justify-between shadow-2xl relative overflow-hidden group">
+                <div class="absolute -right-4 -bottom-4 text-rose-500/5 text-8xl font-black pointer-events-none select-none">⏳</div>
+                <div>
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-rose-500/10 text-rose-400 border border-rose-500/20">
+                        Strict Lock Deadline
+                    </span>
+                    <p class="text-xs text-slate-400 uppercase tracking-widest font-bold mt-3">Gates Close For Entries On</p>
+                </div>
+                <h3 class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-orange-300 to-rose-500 tracking-tight mt-2 font-mono">June 28</h3>
             </div>
 
             <!-- Community Verdict Card -->
-            <div class="md:col-span-2 bg-gradient-to-br from-slate-900/60 to-slate-950/40 backdrop-blur border border-slate-800 rounded-2xl p-6 space-y-4 shadow-xl shadow-emerald-950/5 hover:border-amber-500/20 transition-all duration-300">
+            <div class="bg-gradient-to-br from-slate-900/60 to-slate-950/40 backdrop-blur border border-slate-800 rounded-2xl p-5 space-y-3 shadow-xl hover:border-emerald-500/20 transition-all duration-300">
                 <div>
-                    <h4 class="text-xs uppercase tracking-widest font-black text-amber-400 flex items-center gap-2">
-                        <i class="fas fa-chart-line"></i> Global Community Verdict
+                    <h4 class="text-xs uppercase tracking-widest font-black text-emerald-400 flex items-center gap-2">
+                        <i class="fas fa-chart-line"></i> Community Verdict
                     </h4>
-                    <p class="text-xs text-slate-400 mt-0.5">Real-time analytical percentage trends of top predicted finalists</p>
+                    <p class="text-[11px] text-slate-400">Real-time analytical trends of predictions</p>
                 </div>
-                <!-- Target for JavaScript Bars -->
-                <div id="analytics-container" class="space-y-3">
+                <div id="analytics-container" class="space-y-2.5">
                     <p class="text-xs text-slate-500 italic">Processing bracket formulas...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Friction Killer: 3-Step Onboarding Guide -->
+        <section class="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 shadow-xl">
+            <h3 class="text-sm font-black uppercase tracking-wider text-slate-200 mb-4 flex items-center gap-2">
+                <i class="fas fa-map-signs text-blue-500"></i> How to Secure Your Ticket & Join the Pool
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-850 space-y-1.5">
+                    <div class="text-blue-400 font-black text-sm">01. Pick Your Finalists</div>
+                    <p class="text-slate-400 leading-relaxed">Choose the exact **2 countries** you predict will survive and reach the Grand Final match.</p>
+                </div>
+                <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-850 space-y-1.5">
+                    <div class="text-emerald-400 font-black text-sm">02. Transfer Rs. 10 Entry</div>
+                    <p class="text-slate-400 leading-relaxed">Send your **Rs. 10** entry fee via eSewa or Khalti directly to the Admin wallet.</p>
+                </div>
+                <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-850 space-y-1.5">
+                    <div class="text-amber-400 font-black text-sm">03. Inbox Admin to Lock In</div>
+                    <p class="text-slate-400 leading-relaxed">Send your payment screenshot + your name to our inbox. We will instantly activate your live ticket code below!</p>
                 </div>
             </div>
         </section>
@@ -72,16 +115,16 @@
         <!-- Main Live Tracker Table & Controls -->
         <section class="bg-slate-900/30 backdrop-blur border border-slate-800/80 rounded-2xl overflow-hidden shadow-2xl">
             
-            <!-- Dynamic Control Bar Header -->
+            <!-- Control Bar Header -->
             <div class="p-6 border-b border-slate-800/60 bg-slate-950/30 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
                 <div>
                     <h2 class="text-lg font-black tracking-wide text-white flex items-center gap-2">
-                        <i class="fas fa-shield-halved text-blue-500"></i> Live Verification Ledger
+                        <i class="fas fa-list-ol text-emerald-500"></i> Active Public Ledger (<span id="total-entries" class="font-mono text-emerald-400">00</span> entries)
                     </h2>
                     <p class="text-xs text-slate-400 mt-0.5">Filter brackets or run real-time matchup simulations</p>
                 </div>
 
-                <!-- Interactive Filters Panel -->
+                <!-- Filters Panel -->
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto">
                     
                     <!-- Matchup Simulator Component -->
@@ -97,7 +140,7 @@
                         </select>
                     </div>
 
-                    <!-- Traditional Search Component -->
+                    <!-- Search Component -->
                     <div class="relative flex-1 sm:w-64">
                         <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
                         <input type="text" id="search-bar" placeholder="Search participant name..." 
@@ -132,12 +175,9 @@
     <script>
         let participantData = [];
 
-        // Dynamic Flag Look-up Engine
         function getFlagHtml(teamName) {
             if (!teamName) return '';
             const cleanName = teamName.trim().toLowerCase();
-            
-            // Map text names to official country codes
             const flags = {
                 "argentina": "ar", "brazil": "br", "france": "fr", "germany": "de", 
                 "england": "gb-eng", "portugal": "pt", "spain": "es", "italy": "it",
@@ -149,13 +189,8 @@
                 "tunisia": "tn", "poland": "pl", "denmark": "dk", "serbia": "rs",
                 "wales": "gb-wls", "costa rica": "cr"
             };
-            
             const code = flags[cleanName];
-            if (code) {
-                return `<img src="https://flagcdn.com/16x12/${code}.png" class="inline mr-2 rounded-sm shadow-sm opacity-90 relative -top-[1px]" alt="${teamName}">`;
-            }
-            // Fallback icon if you type a custom team name not in the immediate list
-            return `<i class="far fa-flag mr-2 text-slate-500"></i>`;
+            return code ? `<img src="https://flagcdn.com/16x12/${code}.png" class="inline mr-2 rounded-sm shadow-sm opacity-90 relative -top-[1px]" alt="${teamName}">` : `<i class="far fa-flag mr-2 text-slate-500"></i>`;
         }
 
         async function loadLedger() {
@@ -163,14 +198,39 @@
                 const response = await fetch('participants.json?t=' + new Date().getTime());
                 participantData = await response.json();
                 
+                const calculatedBounty = participantData.length * 10;
+                document.getElementById('live-prize-pool').innerText = 'Rs. ' + calculatedBounty;
                 document.getElementById('total-entries').innerText = participantData.length.toString().padStart(2, '0');
                 
+                updateRecentActivityTicker(participantData);
                 calculateAnalytics(participantData);
                 populateSimulatorDropdowns(participantData);
                 filterAndRender();
             } catch (error) {
                 console.error("Error running database loading chain:", error);
             }
+        }
+
+        function updateRecentActivityTicker(data) {
+            const tickerBox = document.getElementById('activity-ticker');
+            if (!data || data.length === 0) {
+                tickerBox.innerHTML = `
+                    <span class="text-amber-500 font-bold flex items-center gap-1.5 shrink-0">
+                        <i class="fas fa-bullhorn animate-pulse"></i> HUB UPDATE:
+                    </span>
+                    <p class="text-slate-300 font-medium tracking-wide">The pool is completely fresh! Be the pioneer—comment "INBOX" to purchase Ticket #01 now! 🔥</p>`;
+                return;
+            }
+            
+            // Extract the absolute last element inside the list
+            const latestEntry = data[data.length - 1];
+            tickerBox.innerHTML = `
+                <span class="text-emerald-400 font-bold flex items-center gap-1.5 shrink-0">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> LATEST ACTIVITY:
+                </span>
+                <marquee class="text-slate-200 font-medium tracking-wide" scrollamount="4.5" onmouseover="this.stop();" onmouseout="this.start();">
+                    🔥 <span class="text-white font-bold">${latestEntry.name}</span> has securely locked in Ticket <span class="text-amber-400 font-mono font-bold">#${latestEntry.ticket}</span> predicting a grand final clash of <span class="text-emerald-400 font-bold">${latestEntry.pick1} vs ${latestEntry.pick2}</span>!
+                </marquee>`;
         }
 
         function populateSimulatorDropdowns(data) {
@@ -255,8 +315,8 @@
                             </span>
                             <span class="text-slate-400 font-mono text-[11px]">${totalVotes} votes (${percentage}%)</span>
                         </div>
-                        <div class="w-full bg-slate-950 rounded-full h-2 border border-slate-800/40 overflow-hidden">
-                            <div class="${barColor} h-2 rounded-full transition-all duration-500 shadow-sm" style="width: ${percentage}%"></div>
+                        <div class="w-full bg-slate-950 rounded-full h-1.5 border border-slate-800/40 overflow-hidden">
+                            <div class="${barColor} h-1.5 rounded-full transition-all duration-500 shadow-sm" style="width: ${percentage}%"></div>
                         </div>
                     </div>`;
             });
@@ -268,7 +328,7 @@
             const tbody = document.getElementById('ledger-body');
             tbody.innerHTML = '';
             if(data.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="5" class="text-center py-10 text-slate-500 italic">No corresponding records match the set filtering settings.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="5" class="text-center py-10 text-slate-500 italic">No records match filter options.</td></tr>`;
                 return;
             }
             data.forEach(player => {
