@@ -47,5 +47,12 @@
     "pick1": "Germany",
     "pick2": "Portugal",
     "status": "Verified"
+  },
+  {
+    "ticket": "008",
+    "name": "D-PAIN RAJ MAHAT",
+    "pick1": "Argentina",
+    "pick2": "Germany",
+    "status": "Verified"
   }
 ]
