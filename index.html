@@ -9,10 +9,8 @@
 </head>
 <body class="bg-gradient-to-b from-slate-950 via-slate-900 to-emerald-950/40 text-slate-100 font-sans min-h-screen antialiased selection:bg-amber-500 selection:text-slate-950">
 
-    <!-- Top Glow Accent Line -->
     <div class="h-1 bg-gradient-to-r from-amber-500 via-emerald-500 to-blue-600 w-full"></div>
 
-    <!-- Header Section -->
     <header class="border-b border-slate-800/60 bg-slate-950/70 backdrop-blur sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
             <div class="flex items-center gap-3">
@@ -24,7 +22,12 @@
                     <p class="text-[10px] uppercase tracking-widest text-emerald-400 font-bold">World Cup Predictor Challenge</p>
                 </div>
             </div>
-            <div class="flex items-center gap-4 text-xs font-semibold">
+            
+            <div class="flex flex-wrap items-center justify-center sm:justify-end gap-3 text-xs font-semibold w-full sm:w-auto">
+                <a href="bracket.html" class="bg-gradient-to-r from-emerald-950 to-slate-900 hover:from-emerald-900 hover:to-slate-800 border border-emerald-500/30 text-emerald-400 font-black px-4 py-2 rounded-xl transition-all shadow-md shadow-emerald-950/50 flex items-center gap-2 group">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Live Match Center <i class="fas fa-arrow-right text-[10px] group-hover:translate-x-0.5 transition-transform"></i>
+                </a>
+
                 <div class="bg-slate-900/90 border border-slate-800 px-4 py-2 rounded-xl flex items-center gap-2">
                     <span class="text-slate-400">Ticket Cost:</span>
                     <span class="text-emerald-400 font-extrabold text-sm">Rs. 10</span>
@@ -39,7 +42,6 @@
 
     <main class="max-w-6xl mx-auto px-4 py-6 space-y-6">
 
-        <!-- Live Activity Ticker Widget -->
         <div id="activity-ticker" class="bg-slate-950/60 border border-slate-800/50 rounded-xl px-4 py-2.5 text-xs text-slate-300 flex items-center gap-3 overflow-hidden shadow-inner">
             <span class="text-amber-500 font-bold flex items-center gap-1.5 shrink-0">
                 <i class="fas fa-circle-notch animate-spin text-[10px]"></i> SECURING NETWORK...
@@ -47,10 +49,8 @@
             <p class="text-slate-500 italic">Syncing recent database submissions...</p>
         </div>
         
-        <!-- Top Stats & Analytics Grid -->
         <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
             
-            <!-- Dynamic GROWING Bounty Card -->
             <div class="bg-gradient-to-br from-slate-900 to-slate-950 border-2 border-amber-500/30 rounded-2xl p-5 flex flex-col justify-between shadow-2xl relative overflow-hidden group">
                 <div class="absolute -right-4 -bottom-4 text-amber-500/5 text-8xl font-black pointer-events-none select-none">🏆</div>
                 <div>
@@ -65,7 +65,6 @@
                 </div>
             </div>
 
-            <!-- HARD DEADLINE COUNTER CARD -->
             <div class="bg-gradient-to-br from-slate-900 to-slate-950 border border-rose-500/30 rounded-2xl p-5 flex flex-col justify-between shadow-2xl relative overflow-hidden group">
                 <div class="absolute -right-4 -bottom-4 text-rose-500/5 text-8xl font-black pointer-events-none select-none">⏳</div>
                 <div>
@@ -77,7 +76,6 @@
                 <h3 class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-orange-300 to-rose-500 tracking-tight mt-2 font-mono">June 28</h3>
             </div>
 
-            <!-- Community Verdict Card -->
             <div class="bg-gradient-to-br from-slate-900/60 to-slate-950/40 backdrop-blur border border-slate-800 rounded-2xl p-5 space-y-3 shadow-xl hover:border-emerald-500/20 transition-all duration-300">
                 <div>
                     <h4 class="text-xs uppercase tracking-widest font-black text-emerald-400 flex items-center gap-2">
@@ -91,7 +89,6 @@
             </div>
         </section>
 
-        <!-- Friction Killer: 3-Step Onboarding Guide -->
         <section class="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 shadow-xl">
             <h3 class="text-sm font-black uppercase tracking-wider text-slate-200 mb-4 flex items-center gap-2">
                 <i class="fas fa-map-signs text-blue-500"></i> How to Secure Your Ticket & Join the Pool
@@ -112,10 +109,8 @@
             </div>
         </section>
 
-        <!-- Main Live Tracker Table & Controls -->
         <section class="bg-slate-900/30 backdrop-blur border border-slate-800/80 rounded-2xl overflow-hidden shadow-2xl">
             
-            <!-- Control Bar Header -->
             <div class="p-6 border-b border-slate-800/60 bg-slate-950/30 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
                 <div>
                     <h2 class="text-lg font-black tracking-wide text-white flex items-center gap-2">
@@ -124,10 +119,8 @@
                     <p class="text-xs text-slate-400 mt-0.5">Filter brackets or run real-time matchup simulations</p>
                 </div>
 
-                <!-- Filters Panel -->
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto">
                     
-                    <!-- Matchup Simulator Component -->
                     <div class="flex items-center gap-2 bg-slate-950/90 border border-slate-850 rounded-xl px-3 py-1.5 shadow-inner">
                         <i class="fas fa-crosshairs text-amber-500 text-xs"></i>
                         <span class="text-[10px] uppercase font-black tracking-wider text-slate-400 hidden sm:inline">Sim:</span>
@@ -140,7 +133,6 @@
                         </select>
                     </div>
 
-                    <!-- Search Component -->
                     <div class="relative flex-1 sm:w-64">
                         <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
                         <input type="text" id="search-bar" placeholder="Search participant name..." 
@@ -150,7 +142,6 @@
                 </div>
             </div>
 
-            <!-- Table Output Area -->
             <div class="overflow-x-auto">
                 <table class="w-full text-left text-xs">
                     <thead class="bg-slate-950/80 text-slate-400 uppercase font-bold tracking-wider border-b border-slate-800/60">
@@ -222,7 +213,6 @@
                 return;
             }
             
-            // Extract the absolute last element inside the list
             const latestEntry = data[data.length - 1];
             tickerBox.innerHTML = `
                 <span class="text-emerald-400 font-bold flex items-center gap-1.5 shrink-0">
@@ -346,9 +336,5 @@
 
         window.onload = loadLedger;
     </script>
-
-    <!-- CRISP LIVE CHAT FEATURE -->
-    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="1de2f611-c140-44a0-b9c3-58984f4b07fd";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
-
 </body>
 </html>
