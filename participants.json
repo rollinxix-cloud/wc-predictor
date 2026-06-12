@@ -40,5 +40,12 @@
     "pick1": "Spain",
     "pick2": "Argentina",
     "status": "Verified"
+  },
+  {
+    "ticket": "007",
+    "name": "Sa Ha Dev",
+    "pick1": "Germany",
+    "pick2": "Portugal",
+    "status": "Verified"
   }
 ]
