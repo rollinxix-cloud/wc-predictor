@@ -1,0 +1,836 @@
+{
+  "matches": [
+    {
+      "team1": "Mexico",
+      "score1": 2,
+      "team2": "South Africa",
+      "score2": 0,
+      "status": "Finished",
+      "time": "FT"
+    },
+    {
+      "team1": "South Korea",
+      "score1": 2,
+      "team2": "Czechia",
+      "score2": 1,
+      "status": "Finished",
+      "time": "FT"
+    },
+    {
+      "team1": "Canada",
+      "score1": 1,
+      "team2": "Bosnia-Herzegovina",
+      "score2": 1,
+      "status": "Finished",
+      "time": "FT"
+    },
+    {
+      "team1": "United States",
+      "score1": "-",
+      "team2": "Paraguay",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "01:00"
+    },
+    {
+      "team1": "Qatar",
+      "score1": "-",
+      "team2": "Switzerland",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "19:00"
+    },
+    {
+      "team1": "Brazil",
+      "score1": "-",
+      "team2": "Morocco",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "22:00"
+    },
+    {
+      "team1": "Haiti",
+      "score1": "-",
+      "team2": "Scotland",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "01:00"
+    },
+    {
+      "team1": "Australia",
+      "score1": "-",
+      "team2": "Turkey",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "04:00"
+    },
+    {
+      "team1": "Germany",
+      "score1": "-",
+      "team2": "Curaçao",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "17:00"
+    },
+    {
+      "team1": "Netherlands",
+      "score1": "-",
+      "team2": "Japan",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "20:00"
+    },
+    {
+      "team1": "Ivory Coast",
+      "score1": "-",
+      "team2": "Ecuador",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "23:00"
+    },
+    {
+      "team1": "Sweden",
+      "score1": "-",
+      "team2": "Tunisia",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "02:00"
+    },
+    {
+      "team1": "Spain",
+      "score1": "-",
+      "team2": "Cape Verde Islands",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "16:00"
+    },
+    {
+      "team1": "Belgium",
+      "score1": "-",
+      "team2": "Egypt",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "19:00"
+    },
+    {
+      "team1": "Saudi Arabia",
+      "score1": "-",
+      "team2": "Uruguay",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "22:00"
+    },
+    {
+      "team1": "Iran",
+      "score1": "-",
+      "team2": "New Zealand",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "01:00"
+    },
+    {
+      "team1": "France",
+      "score1": "-",
+      "team2": "Senegal",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "19:00"
+    },
+    {
+      "team1": "Iraq",
+      "score1": "-",
+      "team2": "Norway",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "22:00"
+    },
+    {
+      "team1": "Argentina",
+      "score1": "-",
+      "team2": "Algeria",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "01:00"
+    },
+    {
+      "team1": "Austria",
+      "score1": "-",
+      "team2": "Jordan",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "04:00"
+    },
+    {
+      "team1": "Portugal",
+      "score1": "-",
+      "team2": "Congo DR",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "17:00"
+    },
+    {
+      "team1": "England",
+      "score1": "-",
+      "team2": "Croatia",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "20:00"
+    },
+    {
+      "team1": "Ghana",
+      "score1": "-",
+      "team2": "Panama",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "23:00"
+    },
+    {
+      "team1": "Uzbekistan",
+      "score1": "-",
+      "team2": "Colombia",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "02:00"
+    },
+    {
+      "team1": "Czechia",
+      "score1": "-",
+      "team2": "South Africa",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "16:00"
+    },
+    {
+      "team1": "Switzerland",
+      "score1": "-",
+      "team2": "Bosnia-Herzegovina",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "19:00"
+    },
+    {
+      "team1": "Canada",
+      "score1": "-",
+      "team2": "Qatar",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "22:00"
+    },
+    {
+      "team1": "Mexico",
+      "score1": "-",
+      "team2": "South Korea",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "01:00"
+    },
+    {
+      "team1": "United States",
+      "score1": "-",
+      "team2": "Australia",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "19:00"
+    },
+    {
+      "team1": "Scotland",
+      "score1": "-",
+      "team2": "Morocco",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "22:00"
+    },
+    {
+      "team1": "Brazil",
+      "score1": "-",
+      "team2": "Haiti",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "00:30"
+    },
+    {
+      "team1": "Turkey",
+      "score1": "-",
+      "team2": "Paraguay",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "03:00"
+    },
+    {
+      "team1": "Netherlands",
+      "score1": "-",
+      "team2": "Sweden",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "17:00"
+    },
+    {
+      "team1": "Germany",
+      "score1": "-",
+      "team2": "Ivory Coast",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "20:00"
+    },
+    {
+      "team1": "Ecuador",
+      "score1": "-",
+      "team2": "Curaçao",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "00:00"
+    },
+    {
+      "team1": "Tunisia",
+      "score1": "-",
+      "team2": "Japan",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "04:00"
+    },
+    {
+      "team1": "Spain",
+      "score1": "-",
+      "team2": "Saudi Arabia",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "16:00"
+    },
+    {
+      "team1": "Belgium",
+      "score1": "-",
+      "team2": "Iran",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "19:00"
+    },
+    {
+      "team1": "Uruguay",
+      "score1": "-",
+      "team2": "Cape Verde Islands",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "22:00"
+    },
+    {
+      "team1": "New Zealand",
+      "score1": "-",
+      "team2": "Egypt",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "01:00"
+    },
+    {
+      "team1": "Argentina",
+      "score1": "-",
+      "team2": "Austria",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "17:00"
+    },
+    {
+      "team1": "France",
+      "score1": "-",
+      "team2": "Iraq",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "21:00"
+    },
+    {
+      "team1": "Norway",
+      "score1": "-",
+      "team2": "Senegal",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "00:00"
+    },
+    {
+      "team1": "Jordan",
+      "score1": "-",
+      "team2": "Algeria",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "03:00"
+    },
+    {
+      "team1": "Portugal",
+      "score1": "-",
+      "team2": "Uzbekistan",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "17:00"
+    },
+    {
+      "team1": "England",
+      "score1": "-",
+      "team2": "Ghana",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "20:00"
+    },
+    {
+      "team1": "Panama",
+      "score1": "-",
+      "team2": "Croatia",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "23:00"
+    },
+    {
+      "team1": "Colombia",
+      "score1": "-",
+      "team2": "Congo DR",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "02:00"
+    },
+    {
+      "team1": "Switzerland",
+      "score1": "-",
+      "team2": "Canada",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "19:00"
+    },
+    {
+      "team1": "Bosnia-Herzegovina",
+      "score1": "-",
+      "team2": "Qatar",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "19:00"
+    },
+    {
+      "team1": "Morocco",
+      "score1": "-",
+      "team2": "Haiti",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "22:00"
+    },
+    {
+      "team1": "Scotland",
+      "score1": "-",
+      "team2": "Brazil",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "22:00"
+    },
+    {
+      "team1": "Czechia",
+      "score1": "-",
+      "team2": "Mexico",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "01:00"
+    },
+    {
+      "team1": "South Africa",
+      "score1": "-",
+      "team2": "South Korea",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "01:00"
+    },
+    {
+      "team1": "Ecuador",
+      "score1": "-",
+      "team2": "Germany",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "20:00"
+    },
+    {
+      "team1": "Curaçao",
+      "score1": "-",
+      "team2": "Ivory Coast",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "20:00"
+    },
+    {
+      "team1": "Tunisia",
+      "score1": "-",
+      "team2": "Netherlands",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "23:00"
+    },
+    {
+      "team1": "Japan",
+      "score1": "-",
+      "team2": "Sweden",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "23:00"
+    },
+    {
+      "team1": "Turkey",
+      "score1": "-",
+      "team2": "United States",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "02:00"
+    },
+    {
+      "team1": "Paraguay",
+      "score1": "-",
+      "team2": "Australia",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "02:00"
+    },
+    {
+      "team1": "Norway",
+      "score1": "-",
+      "team2": "France",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "19:00"
+    },
+    {
+      "team1": "Senegal",
+      "score1": "-",
+      "team2": "Iraq",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "19:00"
+    },
+    {
+      "team1": "Uruguay",
+      "score1": "-",
+      "team2": "Spain",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "00:00"
+    },
+    {
+      "team1": "Cape Verde Islands",
+      "score1": "-",
+      "team2": "Saudi Arabia",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "00:00"
+    },
+    {
+      "team1": "New Zealand",
+      "score1": "-",
+      "team2": "Belgium",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "03:00"
+    },
+    {
+      "team1": "Egypt",
+      "score1": "-",
+      "team2": "Iran",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "03:00"
+    },
+    {
+      "team1": "Panama",
+      "score1": "-",
+      "team2": "England",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "21:00"
+    },
+    {
+      "team1": "Croatia",
+      "score1": "-",
+      "team2": "Ghana",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "21:00"
+    },
+    {
+      "team1": "Colombia",
+      "score1": "-",
+      "team2": "Portugal",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "23:30"
+    },
+    {
+      "team1": "Congo DR",
+      "score1": "-",
+      "team2": "Uzbekistan",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "23:30"
+    },
+    {
+      "team1": "Jordan",
+      "score1": "-",
+      "team2": "Argentina",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "02:00"
+    },
+    {
+      "team1": "Algeria",
+      "score1": "-",
+      "team2": "Austria",
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "02:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "19:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "17:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "20:30"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "01:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "17:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "21:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "01:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "16:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "20:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "00:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "19:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "23:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "03:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "18:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "22:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "01:30"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "17:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "21:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "20:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "00:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "19:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "00:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "16:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "20:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "20:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "19:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "21:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "01:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "19:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "19:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "21:00"
+    },
+    {
+      "team1": null,
+      "score1": "-",
+      "team2": null,
+      "score2": "-",
+      "status": "Scheduled",
+      "time": "19:00"
+    }
+  ]
+}
