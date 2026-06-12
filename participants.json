@@ -33,5 +33,12 @@
     "pick1": "Spain",
     "pick2": "France",
     "status": "Verified"
+  },
+  {
+    "ticket": "006",
+    "name": "Subash Tamang",
+    "pick1": "Spain",
+    "pick2": "Argentina",
+    "status": "Verified"
   }
 ]
