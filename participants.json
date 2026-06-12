@@ -26,5 +26,12 @@
     "pick1": "France",
     "pick2": "England",
     "status": "Verified"
+  },
+  {
+    "ticket": "005",
+    "name": "Bibek Humagain",
+    "pick1": "Spain",
+    "pick2": "France",
+    "status": "Verified"
   }
 ]
