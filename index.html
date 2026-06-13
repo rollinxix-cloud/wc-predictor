@@ -24,10 +24,6 @@
             </div>
             
             <div class="flex flex-wrap items-center justify-center sm:justify-end gap-3 text-xs font-semibold w-full sm:w-auto">
-                <a href="bracket.html" class="bg-gradient-to-r from-emerald-950 to-slate-900 hover:from-emerald-900 hover:to-slate-800 border border-emerald-500/30 text-emerald-400 font-black px-4 py-2 rounded-xl transition-all shadow-md shadow-emerald-950/50 flex items-center gap-2 group">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Live Match Center <i class="fas fa-arrow-right text-[10px] group-hover:translate-x-0.5 transition-transform"></i>
-                </a>
-
                 <div class="bg-slate-900/90 border border-slate-800 px-4 py-2 rounded-xl flex items-center gap-2">
                     <span class="text-slate-400">Ticket Cost:</span>
                     <span class="text-emerald-400 font-extrabold text-sm">Rs. 10</span>
@@ -335,6 +331,18 @@
         }
 
         window.onload = loadLedger;
+    </script>
+
+    <script type="text/javascript">
+        window.$crisp=[];
+        window.CRISP_WEBSITE_ID="YOUR_CRISP_WEBSITE_ID_HERE"; // 👈 REPLACE THIS WITH YOUR ACTUAL CRISP WEBSITE ID
+        (function(){
+            d=document;
+            s=d.createElement("script");
+            s.src="https://client.crisp.chat/l.js";
+            s.async=1;
+            d.getElementsByTagName("head")[0].appendChild(s);
+        })();
     </script>
 </body>
 </html>
