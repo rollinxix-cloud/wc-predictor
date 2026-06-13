@@ -138,19 +138,16 @@
                 </div>
             </div>
 
-            <div class="overflow-x-auto">
-                <table class="w-full text-left text-xs">
-                    <thead class="bg-slate-950/80 text-slate-400 uppercase font-bold tracking-wider border-b border-slate-800/60">
-                        <tr>
-                            <th class="px-6 py-4.5">Ticket Code</th>
-                            <th class="px-6 py-4.5">Participant</th>
-                            <th class="px-6 py-4.5">Predicted Finalist 1</th>
-                            <th class="px-6 py-4.5">Predicted Finalist 2</th>
-                            <th class="px-6 py-4.5 text-right">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="ledger-body" class="divide-y divide-slate-800/40 bg-slate-900/10"></tbody>
-                </table>
+            <div class="w-full">
+                <div class="hidden md:grid md:grid-cols-12 bg-slate-950/80 text-slate-400 uppercase font-bold tracking-wider border-b border-slate-800/60 px-6 py-4 text-[11px]">
+                    <div class="md:col-span-2">Ticket Code</div>
+                    <div class="md:col-span-3">Participant</div>
+                    <div class="md:col-span-3">Predicted Finalist 1</div>
+                    <div class="md:col-span-3">Predicted Finalist 2</div>
+                    <div class="md:col-span-1 text-right">Status</div>
+                </div>
+
+                <div id="ledger-body" class="divide-y divide-slate-800/40 bg-slate-900/10"></div>
             </div>
         </section>
     </main>
@@ -313,19 +310,47 @@
         function renderTable(data) {
             const tbody = document.getElementById('ledger-body');
             tbody.innerHTML = '';
+            
             if(data.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="5" class="text-center py-10 text-slate-500 italic">No records match filter options.</td></tr>`;
+                tbody.innerHTML = `<div class="text-center py-10 text-slate-500 italic text-xs">No records match filter options.</div>`;
                 return;
             }
+            
             data.forEach(player => {
                 const row = `
-                    <tr class="hover:bg-slate-800/30 transition-all duration-150">
-                        <td class="px-6 py-4 font-mono font-bold text-slate-400 tracking-wider">#${player.ticket}</td>
-                        <td class="px-6 py-4 font-bold text-slate-200">${player.name}</td>
-                        <td class="px-6 py-4"><span class="bg-slate-950/80 px-3 py-1.5 rounded-xl border border-slate-800 text-[11px] font-semibold text-slate-300 shadow-sm flex items-center w-fit">${getFlagHtml(player.pick1)}${player.pick1}</span></td>
-                        <td class="px-6 py-4"><span class="bg-slate-950/80 px-3 py-1.5 rounded-xl border border-slate-800 text-[11px] font-semibold text-slate-300 shadow-sm flex items-center w-fit">${getFlagHtml(player.pick2)}${player.pick2}</span></td>
-                        <td class="px-6 py-4 text-right"><span class="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 shadow-sm"><i class="fas fa-circle-check mr-1 text-[9px]"></i>${player.status}</span></td>
-                    </tr>`;
+                    <div class="p-4 md:px-6 md:py-4 hover:bg-slate-800/30 transition-all duration-150 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-0 items-center text-xs">
+                        
+                        <div class="flex justify-between items-center md:col-span-2">
+                            <span class="font-mono font-black text-amber-500 tracking-wider text-sm md:text-xs">#${player.ticket}</span>
+                            <span class="md:hidden px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 shadow-sm">
+                                <i class="fas fa-circle-check mr-1 text-[9px]"></i>${player.status}
+                            </span>
+                        </div>
+
+                        <div class="font-bold text-slate-200 text-sm md:text-xs md:col-span-3">
+                            ${player.name}
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 md:contents">
+                            <div class="md:col-span-3">
+                                <span class="bg-slate-950/80 px-2.5 py-1.5 rounded-xl border border-slate-800 text-[11px] font-semibold text-slate-300 shadow-sm flex items-center w-full md:w-fit justify-center md:justify-start">
+                                    ${getFlagHtml(player.pick1)}${player.pick1}
+                                </span>
+                            </div>
+                            <div class="md:col-span-3">
+                                <span class="bg-slate-950/80 px-2.5 py-1.5 rounded-xl border border-slate-800 text-[11px] font-semibold text-slate-300 shadow-sm flex items-center w-full md:w-fit justify-center md:justify-start">
+                                    ${getFlagHtml(player.pick2)}${player.pick2}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="hidden md:block md:col-span-1 text-right">
+                            <span class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 shadow-sm whitespace-nowrap">
+                                <i class="fas fa-circle-check mr-1 text-[9px]"></i>${player.status}
+                            </span>
+                        </div>
+
+                    </div>`;
                 tbody.insertAdjacentHTML('beforeend', row);
             });
         }
@@ -335,7 +360,7 @@
 
     <script type="text/javascript">
         window.$crisp=[];
-        window.CRISP_WEBSITE_ID="1de2f611-c140-44a0-b9c3-58984f4b07fd"; // 👈 REPLACE THIS WITH YOUR ACTUAL CRISP WEBSITE ID
+        window.CRISP_WEBSITE_ID="1de2f611-c140-44a0-b9c3-58984f4b07fd"; // REPLACE THIS WITH YOUR ACTUAL CRISP WEBSITE ID
         (function(){
             d=document;
             s=d.createElement("script");
