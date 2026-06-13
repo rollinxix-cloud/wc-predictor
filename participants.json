@@ -75,5 +75,12 @@
     "pick1": "Spain",
     "pick2": "Argentina",
     "status": "Verified"
+  },
+  {
+    "ticket": "012",
+    "name": "Ram Bahadur Gharti",
+    "pick1": "Portugal",
+    "pick2": "Brazil",
+    "status": "Verified"
   }
 ]
