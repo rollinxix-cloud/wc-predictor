@@ -82,5 +82,12 @@
     "pick1": "Portugal",
     "pick2": "Brazil",
     "status": "Verified"
+  },
+  {
+    "ticket": "013",
+    "name": "Smile Xettri",
+    "pick1": "England",
+    "pick2": "France",
+    "status": "Verified"
   }
 ]
