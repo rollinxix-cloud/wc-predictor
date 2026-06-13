@@ -3,133 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIVE HUB | World Cup Mega Pool</title>
+    <title>CHAT HUB | World Cup Pool</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="bg-gradient-to-b from-slate-950 via-slate-900 to-emerald-950/40 text-slate-100 font-sans min-h-screen antialiased">
+<body class="bg-gradient-to-b from-slate-950 via-slate-900 to-emerald-950/40 text-slate-100 font-sans min-h-screen antialiased flex flex-col">
 
     <div class="h-1 bg-gradient-to-r from-amber-500 via-emerald-500 to-blue-600 w-full"></div>
 
-    <main class="max-w-6xl mx-auto px-4 py-8">
-        
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-slate-800/80 pb-6 mb-8 gap-4">
-            <div>
-                <span class="text-xs font-black tracking-widest text-emerald-400 bg-emerald-950/60 border border-emerald-800/50 px-2.5 py-1 rounded-full uppercase">
-                    <i class="fa-solid fa-clock mr-1.5"></i> Refreshes via Cloud Engine Every 5 Mins
-                </span>
-                <h1 class="text-3xl font-black tracking-tight mt-2 bg-gradient-to-r from-slate-100 to-slate-400 bg-clip-text text-transparent">
-                    FIFA World Cup Match Center
+    <header class="border-b border-slate-800/80 bg-slate-950/50 backdrop-blur-md">
+        <div class="max-w-4xl mx-auto px-4 h-16 flex justify-between items-center">
+            <div class="flex items-center gap-2.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <h1 class="font-black text-sm uppercase tracking-wider text-slate-200">
+                    Pool Trash Talk Hub
                 </h1>
             </div>
-            <a href="index.html" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 text-xs font-bold px-4 py-2.5 rounded-xl transition-all flex items-center gap-2">
-                <i class="fa-solid fa-arrow-left"></i> Back to Ledger
+            <a href="index.html" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 text-xs font-bold px-4 py-2 rounded-xl transition-all flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
             </a>
         </div>
+    </header>
 
-        <section class="mb-12">
-            <h2 class="text-lg font-black text-amber-500 uppercase tracking-wider mb-4 flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span> Live & Today's Fixtures
-            </h2>
-            <div id="live-matches-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="animate-pulse bg-slate-900/40 border border-slate-800 h-32 rounded-2xl flex items-center justify-center text-slate-500 text-sm">
-                    Reading tournament ledger...
+    <main class="flex-1 max-w-4xl w-full mx-auto p-4 flex flex-col justify-center items-center my-4">
+        <div class="w-full max-w-2xl h-[550px] bg-slate-900/80 border border-slate-800 rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+            
+            <div class="bg-slate-950/60 border-b border-slate-800 p-4 flex justify-between items-center">
+                <div class="text-xs font-bold text-slate-400 flex items-center gap-2">
+                    <i class="fa-solid fa-comments text-emerald-400"></i>
+                    <span>Live Message Board</span>
+                </div>
+                <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/50 px-2 py-0.5 rounded border border-emerald-900/30">
+                    Online
+                </span>
+            </div>
+
+            <div id="chat-messages-box" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs">
+                <div class="bg-slate-950/40 border border-slate-850 p-3 rounded-xl text-slate-400 italic text-center text-[11px]">
+                    Welcome to the Live Hub! Drop your predictions or trash talk below.
                 </div>
             </div>
-        </section>
 
-        <section>
-            <h2 class="text-lg font-black text-slate-300 uppercase tracking-wider mb-6 flex items-center gap-2">
-                <i class="fa-solid fa-table-list text-emerald-500"></i> Tournament Fixtures Ledger (48 Teams)
-            </h2>
-            <div id="groups-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-        </section>
+            <form id="chat-form" class="p-4 bg-slate-950/60 border-t border-slate-800 flex gap-2">
+                <input id="chat-input-field" type="text" placeholder="Type a message..." required autocomplete="off"
+                       class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-colors">
+                <button type="submit" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-4 rounded-xl text-xs font-bold transition-colors cursor-pointer flex items-center justify-center">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
     </main>
 
     <script>
-        async function loadCachedWorldCupData() {
-            try {
-                const response = await fetch('worldcup.json?t=' + new Date().getTime());
-                const data = await response.json();
-                renderMatches(data.matches);
-            } catch (error) {
-                console.error("Local snapshot read error:", error);
-                document.getElementById('live-matches-grid').innerHTML = `
-                    <div class="col-span-2 border border-slate-800 bg-slate-900/50 text-slate-400 p-6 rounded-xl text-xs text-center italic">
-                        Initial database sync in progress. The cloud engine will publish live fixtures profiles shortly!
-                    </div>`;
+        const chatForm = document.getElementById('chat-form');
+        const chatInputField = document.getElementById('chat-input-field');
+        const chatMessagesBox = document.getElementById('chat-messages-box');
+
+        // Loads and displays messages saved in browser localStorage
+        function loadChatFeed() {
+            const logs = JSON.parse(localStorage.getItem('wc_chat_logs')) || [];
+            if (logs.length > 0) {
+                chatMessagesBox.innerHTML = '';
             }
-        }
-
-        function renderMatches(matches) {
-            const grid = document.getElementById('live-matches-grid');
-            const groupsContainer = document.getElementById('groups-container');
-            grid.innerHTML = '';
-            groupsContainer.innerHTML = '';
-
-            const liveMatches = matches.filter(m => ['IN_PLAY', 'PAUSED'].includes(m.status));
             
-            if(liveMatches.length === 0) {
-                grid.innerHTML = `<div class="col-span-2 text-center py-8 text-slate-500 italic text-xs border border-slate-900 bg-slate-950/20 rounded-2xl">No games are actively live on the pitches right now. Standby for next match block kicks!</div>`;
-            } else {
-                liveMatches.forEach(match => {
-                    grid.insertAdjacentHTML('beforeend', createMatchCard(match, true));
-                });
-            }
-
-            const stages = {};
-            matches.forEach(match => {
-                const stageName = match.group || match.stage;
-                if (!stages[stageName]) stages[stageName] = [];
-                stages[stageName].push(match);
-            });
-
-            Object.keys(stages).sort().forEach(stage => {
-                let stageHtml = `
-                    <div class="bg-slate-900/40 border border-slate-800/80 rounded-2xl p-4 space-y-3 shadow-xl">
-                        <h3 class="text-xs font-black tracking-wider text-emerald-400 uppercase border-b border-slate-800 pb-2">
-                            ${stage.replace('_', ' ')}
-                        </h3>
-                        <div class="space-y-2 divide-y divide-slate-800/40">`;
-
-                stages[stage].slice(0, 4).forEach(match => {
-                    const homeScore = match.score.fullTime.home !== null ? match.score.fullTime.home : '-';
-                    const awayScore = match.score.fullTime.away !== null ? match.score.fullTime.away : '-';
-                    stageHtml += `
-                        <div class="flex justify-between items-center pt-2 text-[11px]">
-                            <span class="text-slate-300 font-medium">${match.homeTeam.name}</span>
-                            <span class="font-mono bg-slate-950 px-2 py-0.5 rounded border border-slate-850 font-bold text-amber-400">${homeScore} : ${awayScore}</span>
-                            <span class="text-slate-300 font-medium text-right">${match.awayTeam.name}</span>
-                        </div>`;
-                });
-
-                stageHtml += `</div></div>`;
-                groupsContainer.insertAdjacentHTML('beforeend', stageHtml);
-            });
-        }
-
-        function createMatchCard(match, isLive) {
-            const homeScore = match.score.fullTime.home !== null ? match.score.fullTime.home : 0;
-            const awayScore = match.score.fullTime.away !== null ? match.score.fullTime.away : 0;
-            return `
-                <div class="bg-gradient-to-br from-slate-900 to-slate-950 border ${isLive ? 'border-emerald-500/40 shadow-[0_0_15px_rgba(16,185,129,0.1)]' : 'border-slate-800'} p-5 rounded-2xl">
-                    <div class="flex justify-between items-center mb-3">
-                        <span class="text-[9px] font-black uppercase tracking-widest text-slate-500">${match.group || match.stage}</span>
-                        <span class="bg-red-500/10 text-red-400 border border-red-500/30 text-[9px] font-black px-2 py-0.5 rounded uppercase tracking-wider animate-pulse">● LIVE MATCH</span>
-                    </div>
-                    <div class="grid grid-cols-3 items-center text-center">
-                        <span class="font-bold text-xs text-slate-200">${match.homeTeam.name}</span>
-                        <div class="flex items-center justify-center gap-3">
-                            <span class="text-xl font-mono font-black text-emerald-400">${homeScore}</span>
-                            <span class="text-[10px] font-bold text-slate-600">VS</span>
-                            <span class="text-xl font-mono font-black text-emerald-400">${awayScore}</span>
+            logs.forEach(msg => {
+                const bubble = `
+                    <div class="space-y-1 max-w-[85%]">
+                        <div class="flex items-center gap-2 text-[10px] text-slate-500 px-1">
+                            <span class="font-bold text-emerald-400/90">Pool Player</span>
+                            <span>•</span>
+                            <span>${msg.time}</span>
                         </div>
-                        <span class="font-bold text-xs text-slate-200">${match.awayTeam.name}</span>
-                    </div>
-                </div>`;
+                        <div class="bg-slate-950 border border-slate-850 text-slate-200 p-2.5 rounded-xl break-words font-medium shadow-inner">
+                            ${msg.text}
+                        </div>
+                    </div>`;
+                chatMessagesBox.insertAdjacentHTML('beforeend', bubble);
+            });
+            chatMessagesBox.scrollTop = chatMessagesBox.scrollHeight;
         }
 
-        loadCachedWorldCupData();
+        // Intercepts input submission and publishes message block
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const text = chatInputField.value.trim();
+            if (!text) return;
+
+            const logs = JSON.parse(localStorage.getItem('wc_chat_logs')) || [];
+            const timestamp = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            
+            logs.push({ text: text, time: timestamp });
+            localStorage.setItem('wc_chat_logs', JSON.stringify(logs));
+            
+            chatInputField.value = '';
+            loadChatFeed();
+        });
+
+        // Initialize chat history display on page loading finish
+        loadChatFeed();
     </script>
 </body>
 </html>
