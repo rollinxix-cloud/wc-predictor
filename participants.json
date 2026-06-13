@@ -61,5 +61,12 @@
     "pick1": "Portugal",
     "pick2": "Spain",
     "status": "Verified"
+  },
+  {
+    "ticket": "010",
+    "name": "Manjil Crestha",
+    "pick1": "Brazil",
+    "pick2": "Portugal",
+    "status": "Verified"
   }
 ]
