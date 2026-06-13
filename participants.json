@@ -68,5 +68,12 @@
     "pick1": "Brazil",
     "pick2": "Portugal",
     "status": "Verified"
+  },
+  {
+    "ticket": "011",
+    "name": "D Yozon King",
+    "pick1": "Spain",
+    "pick2": "Argentina",
+    "status": "Verified"
   }
 ]
