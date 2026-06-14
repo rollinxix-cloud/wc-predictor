@@ -45,8 +45,8 @@
             <p class="text-slate-500 italic">Syncing recent database submissions...</p>
         </div>
         
+        <!-- STATS CARDS -->
         <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
             <div class="bg-gradient-to-br from-slate-900 to-slate-950 border-2 border-amber-500/30 rounded-2xl p-5 flex flex-col justify-between shadow-2xl relative overflow-hidden group">
                 <div class="absolute -right-4 -bottom-4 text-amber-500/5 text-8xl font-black pointer-events-none select-none">🏆</div>
                 <div>
@@ -85,26 +85,112 @@
             </div>
         </section>
 
-        <section class="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 shadow-xl">
-            <h3 class="text-sm font-black uppercase tracking-wider text-slate-200 mb-4 flex items-center gap-2">
-                <i class="fas fa-map-signs text-blue-500"></i> How to Secure Your Ticket & Join the Pool
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-                <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-850 space-y-1.5">
-                    <div class="text-blue-400 font-black text-sm">01. Pick Your Finalists</div>
-                    <p class="text-slate-400 leading-relaxed">Choose the exact **2 countries** you predict will survive and reach the Grand Final match.</p>
+        <!-- TWO-COLUMN WORKSPACE: FORM + DIRECTIONS -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            
+            <!-- LEFT: THE ACTIVE SECURE FORM -->
+            <div class="lg:col-span-7 bg-slate-950/80 border-2 border-emerald-500/20 rounded-2xl p-6 shadow-xl relative">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <h3 class="text-sm font-black uppercase tracking-wider text-white mb-1 flex items-center gap-2">
+                    <i class="fas fa-file-invoice-dollar text-emerald-400"></i> Secure Ticket Registration Form
+                </h3>
+                <p class="text-xs text-slate-400 mb-5">Fill in your entry details. Admin will manually verify your payment to activate your card ledger code.</p>
+
+                <!-- REAL SUBMIT FORM SYSTEM -->
+                <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+                    <!-- CHANGE THIS KEY TO YOUR OWN WEB3FORMS ACCESS KEY -->
+                    <input type="hidden" name="access_key" value="8c68bd13-9a99-4789-bc8b-c4d7c60c3449">
+                    <input type="hidden" name="subject" value="🏆 New P.E.S Match Ticket Submission!">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Your Full Name / Game Handle</label>
+                        <div class="relative">
+                            <i class="fas fa-user absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+                            <input type="text" name="Participant Name" required placeholder="e.g., Jon Bonz" 
+                                   class="w-full bg-slate-900 border border-slate-800 rounded-xl py-2.5 pl-9 pr-4 text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/20 transition-all">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Predicted Finalist 1</label>
+                            <select name="Finalist Pick 1" required class="w-full bg-slate-900 border border-slate-800 rounded-xl py-2.5 px-3 text-xs text-slate-200 focus:outline-none focus:border-emerald-500 transition-all cursor-pointer font-semibold">
+                                <option value="" class="text-slate-500">Select first nation...</option>
+                                <option value="Argentina">Argentina</option>
+                                <option value="Brazil">Brazil</option>
+                                <option value="France">France</option>
+                                <option value="Germany">Germany</option>
+                                <option value="England">England</option>
+                                <option value="Portugal">Portugal</option>
+                                <option value="Spain">Spain</option>
+                                <option value="Netherlands">Netherlands</option>
+                                <option value="Nepal">Nepal</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Predicted Finalist 2</label>
+                            <select name="Finalist Pick 2" required class="w-full bg-slate-900 border border-slate-800 rounded-xl py-2.5 px-3 text-xs text-slate-200 focus:outline-none focus:border-emerald-500 transition-all cursor-pointer font-semibold">
+                                <option value="" class="text-slate-500">Select second nation...</option>
+                                <option value="Argentina">Argentina</option>
+                                <option value="Brazil">Brazil</option>
+                                <option value="France">France</option>
+                                <option value="Germany">Germany</option>
+                                <option value="England">England</option>
+                                <option value="Portugal">Portugal</option>
+                                <option value="Spain">Spain</option>
+                                <option value="Netherlands">Netherlands</option>
+                                <option value="Nepal">Nepal</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">eSewa / Khalti Transaction ID (Rs. 10 Code)</label>
+                        <div class="relative">
+                            <i class="fas fa-receipt absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+                            <input type="text" name="Transaction ID" required placeholder="e.g., 5X892KL04" 
+                                   class="w-full bg-slate-900 border border-slate-800 rounded-xl py-2.5 pl-9 pr-4 text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/20 transition-all font-mono">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-slate-950 font-black text-xs uppercase tracking-widest py-3 rounded-xl shadow-lg shadow-emerald-500/10 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer">
+                        <i class="fas fa-paper-plane"></i> Submit Ticket for Verification
+                    </button>
+                </form>
+            </div>
+
+            <!-- RIGHT: THE PAYMENT GUIDELINES -->
+            <div class="lg:col-span-5 flex flex-col gap-4">
+                <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-5 flex-1 space-y-3">
+                    <h4 class="text-xs uppercase tracking-widest font-black text-amber-400 flex items-center gap-2">
+                        <i class="fas fa-wallet"></i> Step 1: Send Entry Fee First
+                    </h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Before filling out the form on the left, make sure to dispatch your fixed tournament pool fee of <strong class="text-white">Rs. 10</strong> over to our Admin account dashboard.
+                    </p>
+                    <div class="p-3 bg-slate-950/80 border border-slate-800 rounded-xl space-y-1.5 text-[11px]">
+                        <div class="flex justify-between"><span class="text-slate-500">Wallet Provider:</span> <span class="font-bold text-slate-200">eSewa / Khalti</span></div>
+                        <div class="flex justify-between"><span class="text-slate-500">Account Owner:</span> <span class="font-bold text-slate-200">Tournament Admin</span></div>
+                    </div>
                 </div>
-                <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-850 space-y-1.5">
-                    <div class="text-emerald-400 font-black text-sm">02. Transfer Rs. 10 Entry</div>
-                    <p class="text-slate-400 leading-relaxed">Send your **Rs. 10** entry fee via eSewa or Khalti directly to the Admin wallet.</p>
-                </div>
-                <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-850 space-y-1.5">
-                    <div class="text-amber-400 font-black text-sm">03. Inbox Admin to Lock In</div>
-                    <p class="text-slate-400 leading-relaxed">Send your payment screenshot + your name to our inbox. We will instantly activate your live ticket code below!</p>
+
+                <div class="bg-amber-500/5 border-2 border-dashed border-amber-500/20 rounded-2xl p-5 flex-1 space-y-2.5">
+                    <h4 class="text-xs uppercase tracking-widest font-black text-amber-400 flex items-center gap-2">
+                        <i class="fas fa-shield-halved"></i> Step 2: Manual Verification Pipeline
+                    </h4>
+                    <p class="text-xs text-slate-300 leading-relaxed font-medium">
+                        Once you hit the green button, your data routes to the Admin ledger control deck. 
+                    </p>
+                    <p class="text-[11px] text-slate-400">
+                        The Admin will manually verify your transaction code against the real wallet system. As soon as it matches, your name and country predictions will securely go live on the public ledger below!
+                    </p>
                 </div>
             </div>
         </section>
 
+        <!-- PUBLIC LEDGER VIEW -->
         <section class="bg-slate-900/30 backdrop-blur border border-slate-800/80 rounded-2xl overflow-hidden shadow-2xl">
             
             <div class="p-6 border-b border-slate-800/60 bg-slate-950/30 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
@@ -139,6 +225,7 @@
             </div>
 
             <div class="w-full">
+                <!-- Desktop Headers -->
                 <div class="hidden md:grid md:grid-cols-12 bg-slate-950/80 text-slate-400 uppercase font-bold tracking-wider border-b border-slate-800/60 px-6 py-4 text-[11px]">
                     <div class="md:col-span-2">Ticket Code</div>
                     <div class="md:col-span-3">Participant</div>
@@ -147,6 +234,7 @@
                     <div class="md:col-span-1 text-right">Status</div>
                 </div>
 
+                <!-- Dynamic Data Target Container -->
                 <div id="ledger-body" class="divide-y divide-slate-800/40 bg-slate-900/10"></div>
             </div>
         </section>
@@ -167,11 +255,7 @@
                 "england": "gb-eng", "portugal": "pt", "spain": "es", "italy": "it",
                 "netherlands": "nl", "belgium": "be", "croatia": "hr", "morocco": "ma",
                 "japan": "jp", "senegal": "sn", "usa": "us", "mexico": "mx", 
-                "nepal": "np", "uruguay": "uy", "switzerland": "ch", "south korea": "kr",
-                "ghana": "gh", "cameroon": "cm", "canada": "ca", "ecuador": "ec",
-                "qatar": "qa", "iran": "ir", "saudi arabia": "sa", "australia": "au",
-                "tunisia": "tn", "poland": "pl", "denmark": "dk", "serbia": "rs",
-                "wales": "gb-wls", "costa rica": "cr"
+                "nepal": "np", "uruguay": "uy", "switzerland": "ch", "south korea": "kr"
             };
             const code = flags[cleanName];
             return code ? `<img src="https://flagcdn.com/16x12/${code}.png" class="inline mr-2 rounded-sm shadow-sm opacity-90 relative -top-[1px]" alt="${teamName}">` : `<i class="far fa-flag mr-2 text-slate-500"></i>`;
@@ -202,7 +286,7 @@
                     <span class="text-amber-500 font-bold flex items-center gap-1.5 shrink-0">
                         <i class="fas fa-bullhorn animate-pulse"></i> HUB UPDATE:
                     </span>
-                    <p class="text-slate-300 font-medium tracking-wide">The pool is completely fresh! Be the pioneer—comment "INBOX" to purchase Ticket #01 now! 🔥</p>`;
+                    <p class="text-slate-300 font-medium tracking-wide">The pool is completely fresh! Fill out the submission card above to claim Ticket #01! 🔥</p>`;
                 return;
             }
             
@@ -258,7 +342,7 @@
                     if (filterTeam1 && filterTeam2) {
                         return (choice1 === filterTeam1 && choice2 === filterTeam2) || (choice1 === filterTeam2 && choice2 === filterTeam1);
                     } else if (filterTeam1) {
-                        return choice1 === filterTeam1 || choice2 === filterTeam1;
+                        return choice1 === filterTeam1 || choice2 === choice1;
                     } else if (filterTeam2) {
                         return choice1 === filterTeam2 || choice2 === filterTeam2;
                     }
@@ -319,7 +403,6 @@
             data.forEach(player => {
                 const row = `
                     <div class="p-4 md:px-6 md:py-4 hover:bg-slate-800/30 transition-all duration-150 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-0 items-center text-xs">
-                        
                         <div class="flex justify-between items-center md:col-span-2">
                             <span class="font-mono font-black text-amber-500 tracking-wider text-sm md:text-xs">#${player.ticket}</span>
                             <span class="md:hidden px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 shadow-sm">
@@ -349,25 +432,12 @@
                                 <i class="fas fa-circle-check mr-1 text-[9px]"></i>${player.status}
                             </span>
                         </div>
-
                     </div>`;
                 tbody.insertAdjacentHTML('beforeend', row);
             });
         }
 
         window.onload = loadLedger;
-    </script>
-
-    <script type="text/javascript">
-        window.$crisp=[];
-        window.CRISP_WEBSITE_ID="1de2f611-c140-44a0-b9c3-58984f4b07fd"; // REPLACE THIS WITH YOUR ACTUAL CRISP WEBSITE ID
-        (function(){
-            d=document;
-            s=d.createElement("script");
-            s.src="https://client.crisp.chat/l.js";
-            s.async=1;
-            d.getElementsByTagName("head")[0].appendChild(s);
-        })();
     </script>
 </body>
 </html>
