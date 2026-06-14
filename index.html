@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>P.E.S MATCHES | World Cup Mega Pool Dashboard</title>
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="🏆 P.E.S MATCHES | World Cup Mega Pool Predictor">
+    <meta property="og:description" content="Predict the 2 World Cup Finalists, join the mega jackpot pool, and claim the grand prize rewards bounty! Single ticket entry is only Rs. 10.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -45,7 +53,6 @@
             <p class="text-slate-500 italic">Syncing recent database submissions...</p>
         </div>
         
-        <!-- STATS CARDS -->
         <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="bg-gradient-to-br from-slate-900 to-slate-950 border-2 border-amber-500/30 rounded-2xl p-5 flex flex-col justify-between shadow-2xl relative overflow-hidden group">
                 <div class="absolute -right-4 -bottom-4 text-amber-500/5 text-8xl font-black pointer-events-none select-none">🏆</div>
@@ -85,10 +92,8 @@
             </div>
         </section>
 
-        <!-- TWO-COLUMN WORKSPACE: FORM + DIRECTIONS -->
         <section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
             
-            <!-- LEFT: THE ACTIVE SECURE FORM -->
             <div class="lg:col-span-7 bg-slate-950/80 border-2 border-emerald-500/20 rounded-2xl p-6 shadow-xl relative">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none"></div>
                 
@@ -97,9 +102,7 @@
                 </h3>
                 <p class="text-xs text-slate-400 mb-5">Fill in your entry details. Admin will manually verify your payment to activate your card ledger code.</p>
 
-                <!-- REAL SUBMIT FORM SYSTEM -->
                 <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
-                    <!-- CHANGE THIS KEY TO YOUR OWN WEB3FORMS ACCESS KEY -->
                     <input type="hidden" name="access_key" value="8c68bd13-9a99-4789-bc8b-c4d7c60c3449">
                     <input type="hidden" name="subject" value="🏆 New P.E.S Match Ticket Submission!">
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
@@ -239,7 +242,6 @@
                 </form>
             </div>
 
-            <!-- RIGHT: THE PAYMENT GUIDELINES -->
             <div class="lg:col-span-5 flex flex-col gap-4">
                 <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-5 flex-1 space-y-4">
                     <h4 class="text-xs uppercase tracking-widest font-black text-amber-400 flex items-center gap-2">
@@ -249,14 +251,12 @@
                         Before filling out the form on the left, scan the official merchant QR code below or transfer the fixed pool fee of <strong class="text-white">Rs. 10</strong> directly to the admin account credentials.
                     </p>
                     
-                    <!-- PREMIUM QR CODE PORT CONTAINER -->
                     <div class="relative bg-slate-950 border border-slate-850 rounded-xl p-4 flex flex-col items-center justify-center overflow-hidden shadow-inner group">
                         <div class="absolute inset-0 bg-gradient-to-b from-emerald-500/5 to-transparent pointer-events-none"></div>
                         <img src="esewa-qr.jpg" alt="eSewa QR Code" class="w-36 h-36 object-contain rounded-lg border border-slate-800 p-1.5 bg-white shadow-xl transition-transform duration-300 group-hover:scale-[1.02]">
                         <div class="w-36 h-0.5 bg-emerald-400/50 absolute top-1/2 left-1/2 -translate-x-1/2 rounded animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.6)] pointer-events-none"></div>
                     </div>
 
-                    <!-- REFACTORED ACCOUNT LEDGER METRICS -->
                     <div class="p-3 bg-slate-950/80 border border-slate-850 rounded-xl space-y-2 text-[11px]">
                         <div class="flex justify-between items-center">
                             <span class="text-slate-500 font-medium">Wallet Merchant:</span> 
@@ -289,7 +289,6 @@
             </div>
         </section>
 
-        <!-- PUBLIC LEDGER VIEW -->
         <section class="bg-slate-900/30 backdrop-blur border border-slate-800/80 rounded-2xl overflow-hidden shadow-2xl">
             
             <div class="p-6 border-b border-slate-800/60 bg-slate-950/30 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
@@ -324,7 +323,6 @@
             </div>
 
             <div class="w-full">
-                <!-- Desktop Headers -->
                 <div class="hidden md:grid md:grid-cols-12 bg-slate-950/80 text-slate-400 uppercase font-bold tracking-wider border-b border-slate-800/60 px-6 py-4 text-[11px]">
                     <div class="md:col-span-2">Ticket Code</div>
                     <div class="md:col-span-3">Participant</div>
@@ -333,7 +331,6 @@
                     <div class="md:col-span-1 text-right">Status</div>
                 </div>
 
-                <!-- Dynamic Data Target Container -->
                 <div id="ledger-body" class="divide-y divide-slate-800/40 bg-slate-900/10"></div>
             </div>
         </section>
@@ -547,6 +544,16 @@
         }
 
         window.onload = loadLedger;
+    </script>
+
+    <script type="text/javascript">
+        window.$crisp=[];
+        window.CRISP_WEBSITE_ID="1de2f611-c140-496a-b605-726487e4726e";
+        (function(){
+            d=document;s=d.createElement("script");
+            s.src="https://client.crisp.chat/l.js";
+            s.async=1;d.getElementsByTagName("head")[0].appendChild(s);
+        })();
     </script>
 </body>
 </html>
