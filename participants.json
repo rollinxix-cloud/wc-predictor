@@ -89,5 +89,12 @@
     "pick1": "England",
     "pick2": "France",
     "status": "Verified"
+  },
+  {
+    "ticket": "014",
+    "name": "Siv Sunar",
+    "pick1": "Argentina",
+    "pick2": "Morocco",
+    "status": "Verified"
   }
 ]
