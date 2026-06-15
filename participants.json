@@ -96,5 +96,12 @@
     "pick1": "Argentina",
     "pick2": "Morocco",
     "status": "Verified"
+  },
+  {
+    "ticket": "015",
+    "name": "Ganesh Nepali",
+    "pick1": "France",
+    "pick2": "Spain",
+    "status": "Verified"
   }
 ]
