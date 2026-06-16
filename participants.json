@@ -103,5 +103,12 @@
     "pick1": "France",
     "pick2": "Spain",
     "status": "Verified"
+  },
+  {
+    "ticket": "016",
+    "name": "Prajwol Shrestha",
+    "pick1": "Germany",
+    "pick2": "Portugal",
+    "status": "Verified"
   }
 ]
