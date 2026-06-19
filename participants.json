@@ -110,5 +110,12 @@
     "pick1": "Germany",
     "pick2": "Portugal",
     "status": "Verified"
+  },
+  {
+    "ticket": "017",
+    "name": "Anil Khulal",
+    "pick1": "Argentina",
+    "pick2": "France",
+    "status": "Verified"
   }
 ]
